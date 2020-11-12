@@ -13,7 +13,7 @@ fi
 # TODO: do this in the compiler package
 export ac_cv_func_realloc_0_nonnull=yes
 
-if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
+if [[ "${CONDA_BUILD_CROSS_COMPILATION}" == "1" ]]; then
   CONFIGURE_ARGS="${CONFIGURE_ARGS} --disable-bootstrap"
 fi
 
