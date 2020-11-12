@@ -1,6 +1,6 @@
 #!/bin/bash
-# Get an updated config.sub and config.guess
-cp $BUILD_PREFIX/share/libtool/build-aux/config.* ./build-aux
+
+autoreconf -vfi
 
 # skip the creation of man pages by faking existance of help2man
 if [ `uname` == Darwin ]; then
