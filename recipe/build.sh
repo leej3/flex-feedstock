@@ -10,10 +10,10 @@ if [ `uname` == Linux ]; then
     export HELP2MAN=/bin/true
 fi
 
+export ac_cv_func_realloc_0_nonnull=yes
+
 if [[ ${HOST} =~ .*linux.* ]]; then
     export CC=${GCC}
-    # TODO :: Handle cross-compilation properly here
-    export CC_FOR_BUILD=${GCC}
 fi
 
 ./configure --prefix="$PREFIX"  \
@@ -22,6 +22,6 @@ fi
 
 make -j${CPU_COUNT} ${VERBOSE_AT}
 if [[ "${CONDA_BUILD_CROSS_COMPILATION}" != "1" ]]; then
-make check
+  make check
 fi
 make install
