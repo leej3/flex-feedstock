@@ -23,6 +23,8 @@ requirements:
     - make      # [unix]
     - libiconv  # [not linux and not win]
     - help2man  # [not win]
+    - flex      # [build_platform != target_platform]
+    - bison     # [build_platform != target_platform]
   run:
     - libiconv  # [not linux and not win]
     - m4
