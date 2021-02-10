@@ -10,16 +10,23 @@ source:
 
 build:
   skip: true  # [win]
+{% if bootstrapping == 'yes' %}
+  number: 0
+  string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_bootstrapping
+{% else %}
   number: 1004
+{% endif %}
   detect_binary_files_with_prefix: true
 
 requirements:
   build:
-    - libtool  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+{% if bootstrapping != 'yes' %}
+    - libtool  # [unix]
     - automake
     - m4
+{% endif %}
     - make      # [unix]
     - libiconv  # [not linux and not win]
     - help2man  # [not win]
