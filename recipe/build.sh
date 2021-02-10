@@ -1,13 +1,12 @@
 #!/bin/bash
 
-autoreconf -vfi
-
 # skip the creation of man pages by faking existance of help2man
 if [ `uname` == Darwin ]; then
     export HELP2MAN=/usr/bin/true
 fi
 if [ `uname` == Linux ]; then
     export HELP2MAN=/bin/true
+    export CFLAGS="-g -O2 -d_GNU_SOURCE $CFLAGS"
 fi
 
 # TODO: do this in the compiler package
