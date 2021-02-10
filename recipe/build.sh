@@ -6,7 +6,7 @@ if [ `uname` == Darwin ]; then
 fi
 if [ `uname` == Linux ]; then
     export HELP2MAN=/bin/true
-    export CFLAGS="-g -O2 -d_GNU_SOURCE $CFLAGS"
+    export CFLAGS="-g -O2 -D_GNU_SOURCE $CFLAGS"
 fi
 
 # TODO: do this in the compiler package
