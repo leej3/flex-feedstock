@@ -26,13 +26,13 @@ requirements:
     - libtool  # [unix]
     - automake
     - m4
-{% endif %}
     - make      # [unix]
     - libiconv  # [not linux and not win]
     - help2man  # [not win]
   run:
     - libiconv  # [not linux and not win]
     - m4
+{% endif %}
 
 test:
   commands:
